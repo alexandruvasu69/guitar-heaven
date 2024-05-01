@@ -1,0 +1,10 @@
+@use "./tokens/tokens";
+
+$screen-breakpoints: (
+    xs: #{tokens.$breakpoint-xs}px,
+    sm: #{tokens.$breakpoint-sm}px,
+    md: #{tokens.$breakpoint-md}px,
+    lg: #{tokens.$breakpoint-lg}px,
+    xl: #{tokens.$breakpoint-xl}px,
+    xxl: #{tokens.$breakpoint-xxl}px,
+);

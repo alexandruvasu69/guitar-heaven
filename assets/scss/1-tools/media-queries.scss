@@ -1,0 +1,8 @@
+@use "sass:map";
+@use "../0-settings/breakpoints";
+
+@mixin min-width($breakpoint) {
+    @media (min-width: #{map.get(breakpoints.$screen-breakpoints, $breakpoint)}) {
+        @content;
+    }
+}
