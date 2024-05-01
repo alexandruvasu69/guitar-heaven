@@ -1,0 +1,13 @@
+@use "../library" as *;
+
+body {
+    font-family: var(--font-default);
+    font-weight: 300;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: clip;
+
+    * {
+        font-family: var(--font-default);
+    }
+}

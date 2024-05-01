@@ -1,0 +1,29 @@
+@use "../library" as *;
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    gap: 1rem;
+    margin-block-start: 4.5rem;
+    padding-block-end: 2rem;
+    min-height: 100vh;
+
+    @include min-width(sm) {
+        padding-inline: 2.375rem;
+    }
+
+    @include min-width(md) {
+        padding-inline: 3.75rem;
+        margin-block-start: 0 !important;
+    }
+
+    @include min-width(lg) {
+        padding-inline: 5.875rem;
+    }
+
+    @include min-width(xxl) {
+        padding-inline: 18.5rem;
+    }
+}

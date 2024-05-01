@@ -1,0 +1,27 @@
+@use "../library.scss" as *;
+
+@mixin light-mode-colors {
+    --bg-color: #{$color-full-white};
+    --text-color: var(--color-full-black);
+    // --table-row-highlight: var(--table-odd-light-bg);
+    --color-accent: #f2f2f2;
+}
+
+@mixin dark-mode-colors {
+    --bg-color: #{$color-midnight-blue};
+    --text-color: #{$color-full-white};
+    // --table-row-highlight: #{$table-odd-dark-bg};
+    --color-accent: #272728;
+}
+
+:root {
+    @include light-mode-colors;
+}
+
+.dark-mode {
+    @include dark-mode-colors;
+}
+
+.ligth-mode {
+    @include light-mode-colors;
+}
