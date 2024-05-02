@@ -1,0 +1,58 @@
+{
+    "root": true,
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "globals": {},
+    "extends": [
+      "eslint:recommended",
+      "plugin:vue/recommended",
+      "plugin:nuxt/recommended"
+    ],
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "@babel/eslint-parser",
+        "requireConfigFile": false
+    },
+
+    "plugins": [
+      "vue"
+    ],
+    // add your custom rules here
+    "rules": {
+      "vue/multi-word-component-names": "off",
+      "quotes": ["error", "double"],
+      "semi": ["error"],
+      "vue/html-indent": [
+        "error",
+        4
+      ],
+      "vue/no-multiple-template-root": "off",
+      "vue/script-indent": [
+        "error",
+        4
+      ],
+      "vue/max-attributes-per-line": ["error", {
+        "singleline": {
+          "max": 3
+        },      
+        "multiline": {
+          "max": 1
+        }
+      }],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
+    },
+    "overrides": [ {
+        "files": [
+            "**/*.vue"
+        ],
+        "globals": {
+            "$fetch": true
+        }
+    }]
+  }
+  

@@ -1,12 +1,19 @@
 <template>
-    <div :class="$style.nav">
-        <NuxtLink :class="$style.logo" to="/">Guitar Heaven</NuxtLink>
+    <div :class="$style.nav" :style="`padding: ${PADDING_HEADER}px`">
+        <NuxtLink :class="$style.logo" to="/">
+            Guitar Heaven
+        </NuxtLink>
         <div :class="$style.utilities">
             <NuxtIcon name="heart" :class="$style.favorties" filled />
             <NuxtIcon name="shopping-cart" :class="$style.cart" />
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { PADDING_HEADER } from "../utils/constans";
+
+</script>
 
 <style lang="scss" module>
 @use "../assets/scss/library" as *;
@@ -17,9 +24,9 @@
     inset-inline: 0;
     z-index: 100;
     width: 100vw;
-    // height: fit-content;
-    padding-inline: 1rem;
-    padding-block: 1.5rem;
+    height: fit-content;
+    // padding-inline: 1rem;
+    // padding-block: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
