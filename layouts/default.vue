@@ -1,34 +1,52 @@
 <template>
-    <Header ref="header" />
-    <div class="page-content" :style="`margin-block-start: ${marginContent}px !important;`">
+    <Header ref="headerRef" />
+    <div class="page-content" :style="`--padding-content: ${initialHeight}px;`" :class="headerHeight ? $style.container : $style.containerNone">
         <slot />
     </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
+import { useWindowScroll } from "@vueuse/core";
 import { useElementSize } from "@vueuse/core";
-import { PADDING_HEADER } from "../utils/constans";
-import { watch } from "vue";
 
-const header = ref();
+const headerRef = ref(null);
 
+const { y } = useWindowScroll();
+const { height } = useElementSize(headerRef);
 
-
-const { height } = useElementSize(header);
-const marginContent = ref();
+const initialHeight = ref(0);
 
 // onMounted(() => {
-//     marginContent.value = height.value + (PADDING_HEADER);
-//     console.log(marginContent.value)
-// })
+//     console.log(window.getComputedStyle(headerRef?.value));
+// });
 
-watch(height, (newVal) => {
-    marginContent.value = newVal + (PADDING_HEADER * 2);
+
+const headerHeight = computed(() => y.value<headerRef.value?.navHeight ? 0 : headerRef.value?.navHeight);
+
+const checkSticky = () => {
+    if(y.value < headerRef.value?.navHeight) {
+        initialHeight.value = headerRef.value?.navHeight;
+    }
+};
+
+watch(y, () => {
+    checkSticky();
+    console.log(initialHeight.value);
 });
+
+
 
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @use "../assets/scss/library" as *;
+
+.container {
+    padding-block-start: var(--padding-content) !important;
+}
+
+.container-none {
+    padding-block-start: none !important;
+}
 </style>
